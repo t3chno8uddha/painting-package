@@ -1,6 +1,6 @@
 {
   "name": "com.appidea.minigameplatform.minigames.neon_drawing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "Neon Drawing",
   "description": "Game about drawing neons.",
   "dependencies": {
