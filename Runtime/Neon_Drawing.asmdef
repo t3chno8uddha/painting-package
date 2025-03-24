@@ -1,0 +1,17 @@
+{
+  "name": "com.appidea.MiniGamePlatform.MiniGames.YOUR_MINI_GAME_NAME",
+  "rootNamespace": "com.appidea.MiniGamePlatform.MiniGames.YOUR_MINI_GAME_NAME",
+  "references": [
+    "com.appidea.MiniGamePlatform.CommunicationAPI",
+    "Unity.Addressables"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
