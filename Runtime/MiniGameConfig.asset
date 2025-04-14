@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MiniGameConfig
   m_EditorClassIdentifier: 
   MiniGameName: Neon_Drawing
-  Version: 0.1.1
+  Version: 0.1.2
   Url: https://pub-f31afea62d87418fa9c9ecac93c4f272.r2.dev
   CustomRenderPipelineAsset: {fileID: 11400000, guid: 3ca8fde7cbe560f46870c783c0ba5830, type: 2}

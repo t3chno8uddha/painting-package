@@ -11,9 +11,7 @@ public class NeonManager : MonoBehaviour
     public float zDistance;
 
     int nextColor = 0;
-
     GameObject currentTrail;
-
     public float smoothness;
 
     MaterialPropertyBlock trailBlock;
@@ -23,47 +21,88 @@ public class NeonManager : MonoBehaviour
     private void Start()
     {
         trailBlock = new MaterialPropertyBlock();
+
+        if (baseRenderer == null)
+        {
+            Debug.LogError("NeonManager: baseRenderer is not assigned.");
+        }
+        if (mainCamera == null)
+        {
+            Debug.LogError("NeonManager: mainCamera is not assigned.");
+        }
+        if (trailColors == null || trailColors.Length == 0)
+        {
+            Debug.LogError("NeonManager: trailColors array is empty or not assigned.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 0) return; // Exit early if no touch input.
+        if (Input.touchCount == 0 || mainCamera == null)
+        {
+            return; // Exit early if no touch input or missing camera.
+        }
 
-        Touch touch = Input.GetTouch(Input.touchCount - 1);  // Get the first touch input.
+        Touch touch = Input.GetTouch(Input.touchCount - 1);
         Vector3 touchPos = mainCamera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, zDistance));
 
         switch (touch.phase)
         {
-            case TouchPhase.Began: // Raycast to check if the touch is on this object.
+            case TouchPhase.Began:
+                if (baseRenderer == null)
+                {
+                    Debug.LogWarning("NeonManager: baseRenderer is null during TouchPhase.Began.");
+                    return;
+                }
+
                 currentTrail = Instantiate(baseRenderer.gameObject, touchPos, transform.rotation, transform);
 
+                if (currentTrail == null)
+                {
+                    Debug.LogWarning("NeonManager: Failed to instantiate currentTrail.");
+                    return;
+                }
+
                 TrailRenderer currentRenderer = currentTrail.GetComponent<TrailRenderer>();
+                if (currentRenderer == null)
+                {
+                    Debug.LogError("NeonManager: TrailRenderer component is missing on baseRenderer.");
+                    return;
+                }
 
-                trailBlock.SetColor("_HDR", trailColors[nextColor]);
-                nextColor++;
+                if (trailColors != null && trailColors.Length > 0 && trailBlock != null)
+                {
+                    Color colorToUse = trailColors[nextColor];
+                    trailBlock.SetColor("_HDR", colorToUse);
+                    nextColor = (nextColor + 1) % trailColors.Length;
+                    currentRenderer.SetPropertyBlock(trailBlock);
+                }
+                else
+                {
+                    Debug.LogWarning("NeonManager: trailColors or trailBlock is not properly set.");
+                }
 
-                if (nextColor == trailColors.Length) nextColor = 0;
-
-                currentRenderer.SetPropertyBlock(trailBlock);
-
-                currentTrail.transform.position = Vector3.Lerp(currentTrail.transform.position, touchPos, smoothness * Time.deltaTime);
-
+                if (currentTrail != null)
+                {
+                    currentTrail.transform.position = Vector3.Lerp(currentTrail.transform.position, touchPos, smoothness * Time.deltaTime);
+                }
                 break;
 
-            case TouchPhase.Moved:  // Update position only if it has changed.
-                currentTrail.transform.position = Vector3.Lerp(currentTrail.transform.position, touchPos, smoothness * Time.deltaTime);
-                break;
+            case TouchPhase.Moved:
             case TouchPhase.Stationary:
-                currentTrail.transform.position = Vector3.Lerp(currentTrail.transform.position, touchPos, smoothness * Time.deltaTime);
+                if (currentTrail != null)
+                {
+                    currentTrail.transform.position = Vector3.Lerp(currentTrail.transform.position, touchPos, smoothness * Time.deltaTime);
+                }
                 break;
-            case TouchPhase.Ended:  // Release the object when touch ends.
-                currentTrail.transform.position = touchPos;
-                currentTrail = null;
-                break;
-            case TouchPhase.Canceled: // Release the object when touch is canceled.
-                currentTrail.transform.position = touchPos;
-                currentTrail = null;
+
+            case TouchPhase.Ended:
+            case TouchPhase.Canceled:
+                if (currentTrail != null)
+                {
+                    currentTrail.transform.position = touchPos;
+                    currentTrail = null;
+                }
                 break;
         }
     }
