@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be96c86d337b413a9883ba842490e1dc, type: 3}
+  m_Name: MiniGameConfig
+  m_EditorClassIdentifier: 
+  MiniGameName: Painting
+  Version: 0.1.0
+  Url: 
+  CustomRenderPipelineAsset: {fileID: 11400000, guid: cefbf69eb7937844ca30d63f5302f93c, type: 2}

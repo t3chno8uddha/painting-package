@@ -1,0 +1,17 @@
+{
+    "name": "com.appidea.MiniGamePlatform.MiniGames.painting",
+    "rootNamespace": "com.appidea.MiniGamePlatform.MiniGames.painting",
+    "references": [
+        "com.appidea.MiniGamePlatform.CommunicationAPI",
+        "Unity.Addressables"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
