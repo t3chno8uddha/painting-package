@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using com.appidea.MiniGamePlatform.CommunicationAPI;
+using com.appidea.Modules.MiniGamesCommunicationAPI;
 using UnityEngine;
 
 public class PaintGameEntryPoint : BaseMiniGameEntryPoint

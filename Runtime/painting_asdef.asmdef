@@ -3,7 +3,8 @@
     "rootNamespace": "com.appidea.MiniGamePlatform.MiniGames.painting",
     "references": [
         "com.appidea.MiniGamePlatform.CommunicationAPI",
-        "Unity.Addressables"
+        "Unity.Addressables",
+        "com.appidea.Modules.MiniGamesCommunicationAPI"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

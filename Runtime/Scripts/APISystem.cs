@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using com.appidea.MiniGamePlatform.CommunicationAPI;
+using com.appidea.Modules.MiniGamesCommunicationAPI;
 
 public class APISystem : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {

@@ -1,10 +1,10 @@
 {
   "name": "com.appidea.minigameplatform.minigames.painting",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "displayName": "Painting",
-  "description": "Paint your heart out.",
+  "description": "Paint your heart out",
   "dependencies": {
-    "com.unity.addressables": "1.21.21",
+    "com.unity.addressables": "1.25.0",
     "com.unity.render-pipelines.universal": "14.0.10"
   },
   "unity": "2022.3",
