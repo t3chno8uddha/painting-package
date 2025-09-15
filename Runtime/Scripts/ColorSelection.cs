@@ -19,4 +19,5 @@ public class ColorSelection : MonoBehaviour
             color.anchoredPosition = pos;
         }
     }
+    //
 }
