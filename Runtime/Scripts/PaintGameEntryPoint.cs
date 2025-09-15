@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PaintGameEntryPoint : BaseMiniGameEntryPoint
 {
+    //
     [SerializeField] private GameObject gamePrefab;
     private IGameOverScreen gameOverScreen = default;
     private GameOverScreenData GameOverData => GetGameOverScreenData;

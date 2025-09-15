@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MiniGameConfig
   m_EditorClassIdentifier: 
   MiniGameName: painting
-  Version: 0.1.2
+  Version: 0.1.3
   Url: https://pub-f31afea62d87418fa9c9ecac93c4f272.r2.dev
   CustomRenderPipelineAsset: {fileID: 11400000, guid: 1254fce65bf66fa419851dd8a6b241e1, type: 2}
