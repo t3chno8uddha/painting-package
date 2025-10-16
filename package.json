@@ -1,6 +1,6 @@
 {
   "name": "com.appidea.minigameplatform.minigames.painting",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "displayName": "Painting",
   "description": "Paint your heart out",
   "dependencies": {
